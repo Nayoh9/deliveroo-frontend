@@ -1,0 +1,25 @@
+body {
+  background-color: #ffffff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  border-bottom: #e9ebeb solid 1px;
+}
+
+header .logo {
+  width: 100px;
+  height: 100px;
+  margin-left: 150px;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 260px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
