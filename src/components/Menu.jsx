@@ -16,16 +16,18 @@ const Menu = ({ tab, cart, setCart }) => {
                   <div
                     className="meals"
                     key={elemMeals.id}
+                    // Onclick qui affiche cart dans le cart
                     onClick={() => {
                       const newCart = [...cart];
                       newCart.push(
                         <div className="cartMeals" key={elemMeals.id}>
-                          <span>{elemMeals.title}</span>
+                          <span key={elemMeals.id}>{elemMeals.title}</span>
                           <span>{elemMeals.price}</span>
                         </div>
                       );
                       setCart(newCart);
                     }}
+                    // Div qui contient tous les Repas de la carte
                   >
                     <p>{elemMeals.title}</p>
                     <p>{elemMeals.description}</p>

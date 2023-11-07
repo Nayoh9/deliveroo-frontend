@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Menu from "./components/Menu";
+// import Cart from "./components/Cart";
 import axios from "axios";
 
 function App() {
