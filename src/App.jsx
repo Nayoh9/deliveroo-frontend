@@ -9,6 +9,7 @@ function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [tab, setTab] = useState();
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +43,14 @@ function App() {
         img={data.restaurant.picture}
       ></Section>
       <div className="container">
-        <Menu tab={tab} />
+        <Menu tab={tab} cart={cart} setCart={setCart} />
+
+        <div className="cart">
+          <div>
+            <button>Valider mon panier</button>
+            <div>{cart}</div>
+          </div>
+        </div>
       </div>
     </>
   );

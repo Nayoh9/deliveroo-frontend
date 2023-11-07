@@ -1,5 +1,8 @@
-const Menu = (tab) => {
-  console.log(tab);
+const Menu = ({ tab, cart, setCart }) => {
+  // console.log(tab);
+  // console.log(cart);
+  // console.log(setCart);
+
   return (
     <div className="menu">
       {tab.map((elem) => {
@@ -10,7 +13,20 @@ const Menu = (tab) => {
 
               {elem.meals.map((elemMeals) => {
                 return (
-                  <div className="meals" key={elemMeals.id}>
+                  <div
+                    className="meals"
+                    key={elemMeals.id}
+                    onClick={() => {
+                      const newCart = [...cart];
+                      newCart.push(
+                        <div className="cartMeals" key={elemMeals.id}>
+                          <span>{elemMeals.title}</span>
+                          <span>{elemMeals.price}</span>
+                        </div>
+                      );
+                      setCart(newCart);
+                    }}
+                  >
                     <p>{elemMeals.title}</p>
                     <p>{elemMeals.description}</p>
                     <p>{elemMeals.price}</p>
