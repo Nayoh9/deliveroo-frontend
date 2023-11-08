@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Menu from "./components/Menu";
-// import Cart from "./components/Cart";
+import Cart from "./components/Cart";
 import axios from "axios";
 
 function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [tab, setTab] = useState();
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -20,9 +19,6 @@ function App() {
         );
         setData(response.data);
         setIsLoading(false);
-        // // jattribue data categories à tabData
-        const tabData = response.data.categories;
-        setTab(tabData);
       } catch (error) {
         console.log(error);
       }
@@ -30,8 +26,6 @@ function App() {
 
     fetchData();
   }, []);
-
-  // console.log(tab);
 
   return isLoading ? (
     <p className="loading">Loading page</p>
@@ -44,14 +38,8 @@ function App() {
         img={data.restaurant.picture}
       ></Section>
       <div className="container">
-        <Menu tab={tab} cart={cart} setCart={setCart} />
-
-        <div className="cart">
-          <div>
-            <button>Valider mon panier</button>
-            <div>{cart}</div>
-          </div>
-        </div>
+        <Menu data={data.categories} cart={cart} setCart={setCart} />
+        <Cart cart={cart} setCart={setCart} />
       </div>
     </>
   );
